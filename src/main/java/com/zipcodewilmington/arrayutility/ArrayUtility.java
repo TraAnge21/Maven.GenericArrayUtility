@@ -40,8 +40,7 @@ public class ArrayUtility<SomeType> {
 
 
 
-    public SomeType getMostCommonFromMerge() {
-
+    public SomeType getMostCommonFromMerge(SomeType[] arrayToMerge) {
 
         return null;
 
