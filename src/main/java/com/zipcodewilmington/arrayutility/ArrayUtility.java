@@ -12,30 +12,46 @@ import java.util.function.Function;
 //public class ArrayUtility {
 
 public class ArrayUtility<SomeType> {
-//        private final SomeType[] array;
 
-    private final SomeType[] initialArray;
+    private SomeType[] initialArray;
 
     public ArrayUtility(SomeType[] initialArray) {
 
         this.initialArray = initialArray;
     }
 
-    public SomeType CountDuplicatesinMerge() {
+
+    public Integer countDuplicatesInMerge(SomeType[] arrToMerge, SomeType value) {
+        ArrayUtility <SomeType > list = new ArrayUtility<>(initialArray);
+        Integer countDuplicates =0;
+        for ( SomeType memberArray : initialArray) {
+            if ( memberArray.equals(value)) {
+                countDuplicates++;
+            }
+        }
+        for ( SomeType memberArray : arrToMerge) {
+            if ( memberArray.equals(value)) {
+                countDuplicates++;
+            }
+        }
+        return countDuplicates;
+
+    }
+
+
+
+    public SomeType getMostCommonFromMerge() {
 
 
         return null;
 
     }
 
-    public SomeType GetMostCommonFromMerge() {
-
-        return null;
-
-    }
 
 
-    public SomeType [] RemoveValue(SomeType valueToRemove) {
+
+
+    public SomeType [] removeValue(SomeType valueToRemove) {
 
         SomeType[] listAfterRemoval = Arrays.copyOf(initialArray, initialArray.length - getNumberOfOccurrences(valueToRemove));
 //      ArrayUtility<SomeType> list = new ArrayUtility<>(initialArray);
@@ -64,13 +80,6 @@ public class ArrayUtility<SomeType> {
     }
 
 
-    public SomeType[] filter(Function<SomeType, Boolean> predicate) {
-
-
-
-        return null;
-
-    }
 }
 
 
