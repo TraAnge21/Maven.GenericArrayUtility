@@ -2,6 +2,8 @@ package com.zipcodewilmington.arrayutility;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 import java.util.function.Function;
 
 /**
@@ -12,14 +14,15 @@ import java.util.function.Function;
 public class ArrayUtility<SomeType> {
 //        private final SomeType[] array;
 
-    private final SomeType[] array;
+    private final SomeType[] initialArray;
 
-    public ArrayUtility(SomeType[] array) {
+    public ArrayUtility(SomeType[] initialArray) {
 
-        this.array = array;
+        this.initialArray = initialArray;
     }
 
-    public SomeType findOddOccurringValue() {
+    public SomeType CountDuplicatesinMerge() {
+
 
         return null;
 
@@ -31,10 +34,26 @@ public class ArrayUtility<SomeType> {
 
     }
 
+
+    public SomeType [] RemoveValue(SomeType valueToRemove) {
+
+        List<SomeType> listAfterRemoval = new ArrayList<>();
+        ArrayUtility<SomeType> list = new ArrayUtility<>(initialArray);
+       for( SomeType memberArray : initialArray) {
+           if (!(memberArray.equals(valueToRemove))) {
+               listAfterRemoval.add(memberArray);
+           }
+       }
+
+
+//        return null;
+
+    }
+
     public Integer getNumberOfOccurrences(SomeType valueToEvaluate) {
         int countOccurrence =0;
-        for ( int j =0 ; j <= array.length -1; j++) {
-            if ( array[j]==(valueToEvaluate)){
+        for ( int j =0 ; j <= initialArray.length -1; j++) {
+            if ( initialArray[j]==(valueToEvaluate)){
                 countOccurrence++;
             }
         }
