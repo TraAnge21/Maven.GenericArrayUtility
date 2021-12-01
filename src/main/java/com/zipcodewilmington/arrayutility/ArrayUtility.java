@@ -42,7 +42,17 @@ public class ArrayUtility<SomeType> {
 
     public SomeType getMostCommonFromMerge(SomeType[] arrayToMerge) {
 
-        return null;
+        SomeType commonFromMerge = arrayToMerge[0];
+//        for ( SomeType memberArray : initialArray)
+//        {
+//
+//            }
+        for(int j=1; j<= arrayToMerge.length -1;j++) {
+            if(getNumberOfOccurrences(commonFromMerge) < getNumberOfOccurrences(arrayToMerge[j])){
+                commonFromMerge=(arrayToMerge[j]);
+            }
+        }
+        return commonFromMerge;
 
     }
 
