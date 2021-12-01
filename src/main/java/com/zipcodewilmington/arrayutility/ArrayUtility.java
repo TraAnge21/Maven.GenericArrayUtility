@@ -37,18 +37,21 @@ public class ArrayUtility<SomeType> {
 
     public SomeType [] RemoveValue(SomeType valueToRemove) {
 
-        List<SomeType> listAfterRemoval = new ArrayList<>();
-        ArrayUtility<SomeType> list = new ArrayUtility<>(initialArray);
-       for( SomeType memberArray : initialArray) {
-           if (!(memberArray.equals(valueToRemove))) {
-               listAfterRemoval.add(memberArray);
-           }
-       }
+        SomeType[] listAfterRemoval = Arrays.copyOf(initialArray, initialArray.length - getNumberOfOccurrences(valueToRemove));
+//      ArrayUtility<SomeType> list = new ArrayUtility<>(initialArray);
 
-
-//        return null;
-
+        for (int k = 0, m = 0; k < initialArray.length; k++) {
+            if (initialArray[k] != valueToRemove) {
+                listAfterRemoval[m] = initialArray[k];
+                m++;
+            } else {
+                continue;
+            }
+        }
+        return listAfterRemoval;
     }
+
+
 
     public Integer getNumberOfOccurrences(SomeType valueToEvaluate) {
         int countOccurrence =0;
@@ -59,6 +62,7 @@ public class ArrayUtility<SomeType> {
         }
         return countOccurrence;
     }
+
 
     public SomeType[] filter(Function<SomeType, Boolean> predicate) {
 
